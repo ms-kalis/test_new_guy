@@ -49,7 +49,13 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui',
+    {
+      src: '~/plugins/cube-ui',
+      ssr: false
+    }
+  ],
 
   /*
    ** Nuxt.js modules
@@ -83,7 +89,7 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-
+      
       config.plugins.push(
         new nuxtWebpack({
           capture: true,
@@ -92,6 +98,7 @@ module.exports = {
           port: 3030
         })
       )
+      config.resolve.alias['cube-ui'] = 'cube-ui/lib'
     }
   }
 }

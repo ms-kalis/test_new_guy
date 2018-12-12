@@ -17,6 +17,9 @@
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey">GitHub</a>
+        <cube-select 
+          v-model="sex"  
+          :options="sexOptions"/>
       </div>
     </div>
   </section>
@@ -28,12 +31,17 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      sexOptions: ['男', '女'],
+      sex: '男'
+    }
   }
 }
 </script>
 
 <style>
-
 .container {
   min-height: 100vh;
   display: flex;
